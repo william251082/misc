@@ -1,0 +1,169 @@
+.background {
+  background: #000;
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+}
+
+.page {
+  padding: 20px 18px 60px;
+  --secondary-color: #8a8f98;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  flex: 1;
+}
+
+@media (min-width: 768px) {
+  .page {
+    padding: 40px 35px 30px;
+  }
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 0 60px;
+}
+
+.full {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .main {
+    padding: 80px 0 100px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .main {
+    padding: 100px 0;
+  }
+}
+
+.secondary-text {
+  color: var(--secondary-color);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 40px;
+}
+
+@media screen and (min-width: 1360px) {
+  .header {
+    padding: 0;
+  }
+}
+
+.header-logos {
+  max-width: 720px;
+  display: flex;
+  align-items: center;
+}
+
+.header-logos-secondary {
+  display: none;
+}
+
+.header-right {
+  display: none;
+}
+
+@media screen and (min-width: 1200px) {
+  .header-logos-secondary {
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .header {
+    justify-content: space-between;
+  }
+
+  .header-right {
+    align-items: items-center;
+    display: flex;
+  }
+}
+
+.header-separator {
+  height: 56.17px;
+  width: 1px;
+  margin-right: 17px;
+  background: var(--secondary-color);
+}
+
+.description {
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--secondary-color);
+}
+
+.footer {
+  margin: 0 auto;
+  width: 100%;
+  font-size: 14px;
+  line-height: 1.5;
+  display: flex;
+  justify-content: center;
+  color: var(--secondary-color);
+}
+
+.footer-link {
+  color: var(--secondary-color);
+  transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+  color: #fff;
+}
+
+.footer-logo :global(svg) {
+  height: 16px;
+  transform: translateY(3px);
+}
+
+.footer-legal {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.footer-copyright {
+  text-align: center;
+}
+
+.footer-separator {
+  margin-bottom: 15px;
+}
+
+@media screen and (min-width: 960px) {
+  .footer-hostedby {
+    display: none;
+  }
+
+  .footer-legal {
+    flex-direction: row;
+  }
+
+  .footer-separator {
+    margin: 0 10px;
+    height: 24px;
+    width: 1px;
+    background: var(--secondary-color);
+    display: block;
+  }
+}
+
+.footer-paragraph {
+  margin: 0;
+}

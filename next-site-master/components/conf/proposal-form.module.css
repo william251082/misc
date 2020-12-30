@@ -1,0 +1,44 @@
+.section {
+  margin-bottom: var(--geist-gap-double);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.btn {
+  display: inline-flex;
+  border-radius: 8px;
+  border: 1px solid #fff;
+  color: #000;
+  background: #fff;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+  font-weight: 500;
+  outline: none;
+  transition: background-color 0.2s ease;
+  justify-content: center;
+  align-items: center;
+  padding: 0 16px;
+  height: 55px;
+  text-align: center;
+  margin: 0;
+  width: 200px;
+}
+
+.btn:hover,
+.btn:focus {
+  background: black;
+  color: #fff;
+}
+
+.btn:disabled,
+.btn:disabled:hover,
+.btn:disabled:focus {
+  cursor: default;
+  overflow: hidden;
+  color: #000;
+  background: #fff;
+}

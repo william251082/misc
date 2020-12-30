@@ -1,0 +1,74 @@
+import Layout from '../../../../components/learn/Layout'
+import AnswerBox from '../../../../components/learn/AnswerBox'
+
+export const meta = {
+  title: 'Pre-rendering and Data Fetching',
+  courseId: 'basics',
+  lessonId: 'data-fetching',
+  stepId: 'getstaticprops-details',
+  subtitle: 'getStaticProps Details'
+}
+
+Here is some essential information you should know about [`getStaticProps`](/docs/basic-features/data-fetching#getstaticprops-static-generation).
+
+### Fetch External API or Query Database
+
+In `lib/posts.js`, we’ve implemented `getSortedPostsData` which fetches data from the file system. But you can fetch the data from other sources, like an external API endpoint, and it’ll work just fine:
+
+```js
+export async function getSortedPostsData() {
+  // Instead of the file system,
+  // fetch post data from an external API endpoint
+  const res = await fetch('..')
+  return res.json()
+}
+```
+
+> **Note**: Next.js polyfills [`fetch()`](/docs/basic-features/supported-browsers-features) on both the client and server. You don't need to import it.
+
+You can also query the database directly:
+
+```js
+import someDatabaseSDK from 'someDatabaseSDK'
+
+const databaseClient = someDatabaseSDK.createClient(...)
+
+export async function getSortedPostsData() {
+  // Instead of the file system,
+  // fetch post data from a database
+  return databaseClient.query('SELECT posts...')
+}
+```
+
+This is possible because [`getStaticProps`](/docs/basic-features/data-fetching#getstaticprops-static-generation) runs **only on the server-side**. It will never run on the client-side. It won’t even be included in the JS bundle for the browser. That means you can write code such as direct database queries without them being sent to browsers.
+
+### Development vs. Production
+
+- In **development** (`npm run dev` or `yarn dev`), [`getStaticProps`](/docs/basic-features/data-fetching#getstaticprops-static-generation) runs on _every request_.
+- In **production**, [`getStaticProps`](/docs/basic-features/data-fetching#getstaticprops-static-generation) runs at _build time_.
+
+Because it’s meant to be run at build time, you won’t be able to use data that’s only available during request time, such as query parameters or HTTP headers.
+
+### Only Allowed in a Page
+
+[`getStaticProps`](/docs/basic-features/data-fetching#getstaticprops-static-generation) can only be exported from a [**page**](/docs/basic-features/pages). You can’t export it from non-page files.
+
+One of the reasons for this restriction is that React needs to have all the required data before the page is rendered.
+
+### What If I Need to Fetch Data at Request Time?
+
+[Static Generation](/docs/basic-features/pages#static-generation-recommended) is **not** a good idea if you cannot pre-render a page ahead of a user's request. Maybe your page shows frequently updated data, and the page content changes on every request.
+
+In cases like this, you can try [**Server-side Rendering**](/docs/basic-features/pages#server-side-rendering) or skip pre-rendering. Let’s talk about these strategies before we move on to the next lesson.
+
+<AnswerBox
+  meta={meta}
+  answers={['Client-side', 'Server-side', 'Both']}
+  correctAnswer="Server-side"
+>
+
+**Quick Review**: Where does `getStaticProps` run?
+
+</AnswerBox>
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

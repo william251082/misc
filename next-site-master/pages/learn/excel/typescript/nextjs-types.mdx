@@ -1,0 +1,75 @@
+import Layout from '../../../../components/learn/Layout'
+
+export const meta = {
+  title: 'TypeScript',
+  courseId: 'excel',
+  lessonId: 'typescript',
+  stepId: 'nextjs-types',
+  subtitle: 'Next.js Specific Types'
+}
+
+Here are some Next.js specific types you can use.
+
+### Static Generation and Server-side Rendering
+
+For [`getStaticProps`](/docs/basic-features/data-fetching#getstaticprops-static-generation), [`getStaticPaths`](/docs/basic-features/data-fetching#getstaticpaths-static-generation), and [`getServerSideProps`](/docs/basic-features/data-fetching#getserversideprops-server-side-rendering), you can use the `GetStaticProps`, `GetStaticPaths`, and `GetServerSideProps` types respectively:
+
+```ts
+import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next'
+
+export const getStaticProps: GetStaticProps = async context => {
+  // ...
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  // ...
+}
+
+export const getServerSideProps: GetServerSideProps = async context => {
+  // ...
+}
+```
+
+## API Routes
+
+The following is an example of how to use the built-in types for [API routes](/docs/api-routes/introduction):
+
+```ts
+import { NextApiRequest, NextApiResponse } from 'next'
+
+export default (req: NextApiRequest, res: NextApiResponse) => {
+  // ...
+}
+```
+
+## Custom `App`
+
+You can convert `pages/_app.js` into `pages/_app.tsx` and use the built-in type `AppProps`, like so:
+
+```tsx
+import { AppProps } from 'next/app'
+
+function App({ Component, pageProps }: AppProps) {
+  return <Component {...pageProps} />
+}
+
+export default App
+```
+
+### Converting Your App
+
+To convert the blog app we created in the basics lessons into TypeScript, update the following files:
+
+- `components/date.js`: Update to `date.tsx` using [this code](https://github.com/vercel/next-learn-starter/blob/master/typescript-final/components/date.tsx)
+- `components/layout.js`: Update to `layout.tsx` using [this code](https://github.com/vercel/next-learn-starter/blob/master/typescript-final/components/layout.tsx)
+- `lib/posts.js`: Update to `posts.ts` using [this code](https://github.com/vercel/next-learn-starter/blob/master/typescript-final/lib/posts.ts)
+- `pages/posts/[id].js`: Update to `[id].tsx` using [this code](https://github.com/vercel/next-learn-starter/blob/master/typescript-final/pages/posts/[id].tsx)
+- `pages/index.js`: Update to `index.tsx` using [this code](https://github.com/vercel/next-learn-starter/blob/master/typescript-final/pages/index.tsx)
+- `pages/_app.js`: Update to `_app.tsx` using [this code](https://github.com/vercel/next-learn-starter/blob/master/typescript-final/pages/_app.tsx)
+- `pages/api/hello.js`: Update to `hello.ts` using [this code](https://github.com/vercel/next-learn-starter/blob/master/typescript-final/pages/api/hello.ts)
+
+That’s it! Your app is now powered by TypeScript.
+
+> To learn more about using Next.js in TypeScript, take a look at [our TypeScript documentation](/docs/basic-features/typescript).
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

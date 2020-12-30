@@ -1,0 +1,23 @@
+on:
+  push:
+    branches:
+      - master
+name: Build and Index
+jobs:
+  index:
+    name: Index Next.js Docs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Install and Build
+        uses: docker://mhart/alpine-node:10
+        with:
+          entrypoint: sh
+          args: -c "yarn install && yarn build"
+      - name: Index Docs
+        uses: docker://mhart/alpine-node:10
+        env:
+          ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
+        with:
+          entrypoint: sh
+          args: -c "ALGOLIA_API_KEY=$ALGOLIA_API_KEY yarn index-docs"

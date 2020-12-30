@@ -1,0 +1,34 @@
+import Layout from '../../../../components/learn/Layout'
+import TwitterLink from '../../../../components/name/twitter-link'
+
+export const meta = {
+  title: 'Deploying Your Next.js App',
+  courseId: 'basics',
+  lessonId: 'deploying-nextjs-app',
+  stepId: 'finally',
+  subtitle: 'Finally'
+}
+
+Congratulations on finishing all the basics lessons! Here are some recommended steps:
+
+### Share Your Next.js App
+
+We encourage you to share the app you built in this tutorial on Twitter. If you do, please mention our team at <TwitterLink /> so that we can take a look! We’d love to get your feedback on this tutorial as well.
+
+### Use TypeScript with Next.js
+
+If you prefer using [TypeScript](https://www.typescriptlang.org/), you can learn [how to use TypeScript with Next.js from here](/learn/excel/typescript).
+
+### What to Learn Next
+
+Take a look at [our documentation](/docs) to learn more. In particular, the following pages might be interesting:
+
+- [**Data Fetching:**](/docs/basic-features/data-fetching) Learn in depth about data fetching.
+- [**Environment Variables:**](/docs/basic-features/environment-variables) Learn more about the built-in support for Environment Variables.
+- [**AMP Support:**](/docs/advanced-features/amp-support/introduction) Next.js lets you easily create an AMP page.
+
+### Join the Conversation
+
+If you have questions about anything related to Next.js, you're always welcome to ask our community on [GitHub Discussions](https://github.com/vercel/next.js/discussions).
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

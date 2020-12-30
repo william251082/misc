@@ -1,0 +1,22 @@
+import Layout from '../../../../components/learn/Layout'
+
+export const meta = {
+  title: 'Dynamic Routes',
+  courseId: 'basics',
+  lessonId: 'dynamic-routes'
+}
+
+We’ve populated the index page with the blog data, but we still haven’t created individual blog pages yet (here’s the [desired result](https://next-learn-starter.now.sh/)). We want the URL for these pages to depend on the blog data, which means we need to use [dynamic routes](/docs/routing/dynamic-routes).
+
+### What You’ll Learn in This Lesson
+
+In this lesson, you’ll learn:
+
+- How to statically generate pages with [dynamic routes](/docs/routing/dynamic-routes) using [`getStaticPaths`](/docs/basic-features/data-fetching#getstaticpaths-static-generation).
+- How to write [`getStaticProps`](/docs/basic-features/data-fetching#getstaticprops-static-generation) to fetch the data for each blog post.
+- How to render markdown using [`remark`](https://github.com/remarkjs/remark).
+- How to pretty-print date strings.
+- How to link to a page with [dynamic routes](/docs/routing/dynamic-routes).
+- Some useful information on [dynamic routes](/docs/routing/dynamic-routes).
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>
